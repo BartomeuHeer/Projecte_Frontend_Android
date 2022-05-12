@@ -15,10 +15,10 @@ public class MainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        loginButton.findViewById(R.id.loginBtn);
-        registerButton.findViewById(R.id.registerBtn);
+        loginButton = (Button) findViewById(R.id.loginBtn);
+        registerButton = (Button) findViewById(R.id.registerBtn);
 
-        /*loginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openLoginActivity();
@@ -29,10 +29,10 @@ public class MainPage extends AppCompatActivity {
             public void onClick(View v) {
                 openRegisterActivity();
             }
-        });*/
+        });
     }
 
-   /* private void openLoginActivity(){
+    private void openLoginActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -40,5 +40,5 @@ public class MainPage extends AppCompatActivity {
     private void openRegisterActivity(){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
-    }*/
+    }
 }

@@ -7,34 +7,34 @@
     android:background="@drawable/background"
     android:paddingVertical="40pt"
     tools:context=".MainPage">
+
     <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="Main Page"
-        android:textSize="40sp"
-        android:gravity="center"
         android:layout_marginBottom="40pt"
-        android:textColor="@color/white"/>
+        android:gravity="center"
+        android:text="Main Page"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:textColor="@color/white"
         android:layout_marginHorizontal="10pt"
         android:text="LogIn"
+        android:textColor="@color/white"
         android:textSize="40sp" />
 
     <Button
+        android:id="@+id/registerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:textSize="40sp"
+        android:layout_below="@id/loginBtn"
         android:layout_marginHorizontal="10pt"
-        android:id="@+id/registerBtn"
-        android:layout_below="@id/loginBtn"/>
-
+        android:text="Register"
+        android:textSize="40sp" />
 
 </RelativeLayout>
