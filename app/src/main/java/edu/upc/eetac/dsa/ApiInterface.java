@@ -9,14 +9,17 @@ import retrofit2.http.*;
 
 public interface ApiInterface {
 
-    @GET("catalogue")
+    @GET("catalogo")
     Call<List<Item>> getItems();
 
 
-    @POST("login/")
+    @POST("login")
     Call<User> login(@Body LoginParam parameters);
 
 
-    @POST("register/")
+    @POST("register")
     Call<User> register(@Field("username") String userName, @Field("password") String password, @Field("mail") String mail);
+
+    @GET("users")
+    Call<List<User>> getUsers();
 }

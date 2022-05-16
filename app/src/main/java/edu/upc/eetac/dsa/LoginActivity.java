@@ -13,6 +13,9 @@ import edu.upc.eetac.dsa.models.LoginParam;
 import retrofit2.converter.gson.GsonConverterFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
+
 import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView userNameText, passText;
     private Button logInBtn;
+    ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         userNameText = (TextView) findViewById(R.id.username);
         passText = (TextView) findViewById(R.id.password);
         logInBtn = (Button) findViewById(R.id.accept);
-
+        apiInterface = Api.getClient();
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), "Loged In_1", Toast.LENGTH_SHORT).show();
 
 
-        Api.getClient().login(new LoginParam(username,pass)).enqueue(new Callback<User>() {
+       /* Api.getClient().login(new LoginParam(username,pass)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful())
@@ -89,6 +93,22 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
 
             }
+        });*/
+
+        apiInterface.getUsers().enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if(response.isSuccessful())
+                    Toast.makeText(getApplicationContext(), "Loged In", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "error1", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
+            }
         });
+
     }
 }
