@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if(response.isSuccessful())
-                    Toast.makeText(getApplicationContext(), "Loged In", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(getApplicationContext(), "error1", Toast.LENGTH_SHORT).show();
             }
