@@ -7,16 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
-
-import edu.upc.eetac.dsa.models.LoginParam;
-import retrofit2.converter.gson.GsonConverterFactory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
-import retrofit2.Retrofit;
+import edu.upc.eetac.dsa.models.Item;
+import edu.upc.eetac.dsa.models.LogInParams;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,67 +41,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        String username = userNameText.getText().toString().trim();
+
+        String un = userNameText.getText().toString().trim();
         String pass = passText.getText().toString().trim();
-        /*String BASE_URL = "http://10.0.2.2:8080/";
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        ApiInterface api = retrofit.create(ApiInterface.class);
-
-        Call<User> call = api.login(new LoginParam(username,pass));
-        call.enqueue(new Callback<User>() {
+        apiInterface.login(new LogInParams(un,pass)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(getApplicationContext(), response.code(), Toast.LENGTH_SHORT).show();
+                String c = Integer.toString(response.code());
+                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
-
-
-        //Toast.makeText(getApplicationContext(), "Loged In_1", Toast.LENGTH_SHORT).show();
-
-
-       /* Api.getClient().login(new LoginParam(username,pass)).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if (response.isSuccessful())
-                    Toast.makeText(getApplicationContext(), "Loged In_2", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.d("response", t.getStackTrace().toString());
-                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
-
-            }
-        });*/
-
-        apiInterface.getUsers().enqueue(new Callback<List<User>>() {
-            @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                if(response.isSuccessful())
-                    Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(), "error1", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
             }
         });

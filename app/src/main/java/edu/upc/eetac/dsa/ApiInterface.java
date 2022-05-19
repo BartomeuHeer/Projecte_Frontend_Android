@@ -2,7 +2,7 @@ package edu.upc.eetac.dsa;
 import java.util.List;
 
 import edu.upc.eetac.dsa.models.Item;
-import edu.upc.eetac.dsa.models.LoginParam;
+import edu.upc.eetac.dsa.models.LogInParams;
 import edu.upc.eetac.dsa.models.User;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -13,13 +13,16 @@ public interface ApiInterface {
     Call<List<Item>> getItems();
 
 
-    @POST("login")
-    Call<User> login(@Body LoginParam parameters);
+    @POST("users/login")
+    Call<User> login(@Body LogInParams loginpar);
 
 
     @POST("register")
-    Call<User> register(@Field("username") String userName, @Field("password") String password, @Field("mail") String mail);
+    Call<User> register(@Body User user);
 
     @GET("users")
     Call<List<User>> getUsers();
+
+    @GET("catalogo")
+    Call<List<Item>> getCatalogo();
 }
