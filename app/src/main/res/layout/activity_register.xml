@@ -24,15 +24,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="324dp"
-        android:layout_height="296dp"
+        android:layout_width="350dp"
+        android:layout_height="387dp"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:errorEnabled="true">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <EditText
             android:id="@+id/user"
@@ -53,7 +53,7 @@
             android:inputType="textEmailAddress"
             android:minHeight="55dp"
             android:textColorHint="#757575"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true" />
 
         <EditText
             android:id="@+id/repeatemail"
@@ -64,7 +64,7 @@
             android:inputType="textEmailAddress"
             android:minHeight="55dp"
             android:textColorHint="#757575"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true" />
 
         <EditText
             android:id="@+id/pass"
@@ -75,7 +75,7 @@
             android:inputType="textPassword"
             android:minHeight="55dp"
             android:textColorHint="#757575"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true" />
 
         <EditText
             android:id="@+id/repeatepass"
@@ -86,10 +86,20 @@
             android:inputType="textPassword"
             android:minHeight="55dp"
             android:textColorHint="#757575"
-            app:errorEnabled="true"/>
+            app:errorEnabled="true" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:enabled="true"
+            android:text="@string/register_btn"
+            android:textSize="20sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
     </LinearLayout>
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="192dp"
         android:layout_height="81dp"
         android:layout_marginBottom="172dp"
@@ -99,8 +109,8 @@
         app:layout_constraintHorizontal_bias="0.803"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <Button
+-->
+   <!--     <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,5 +120,5 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
 
     </LinearLayout>
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

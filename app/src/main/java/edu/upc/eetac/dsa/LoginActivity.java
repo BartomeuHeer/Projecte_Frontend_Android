@@ -2,7 +2,9 @@ package edu.upc.eetac.dsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,14 +50,23 @@ public class LoginActivity extends AppCompatActivity {
         apiInterface.login(new LogInParams(un,pass)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                Log.d("grup1",""+response.code());
                 String c = Integer.toString(response.code());
+                if (response.isSuccessful()) {
+                    openMenuActivity();
+                }
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                Log.d("grup1",""+t.getMessage());
                 Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+    private void openMenuActivity(){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
 }
