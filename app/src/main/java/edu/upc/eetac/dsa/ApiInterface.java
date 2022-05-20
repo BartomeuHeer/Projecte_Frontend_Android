@@ -17,7 +17,7 @@ public interface ApiInterface {
     Call<User> login(@Body LogInParams loginpar);
 
 
-    @POST("register")
+    @POST("users/register")
     Call<User> register(@Body User user);
 
     @GET("users")
