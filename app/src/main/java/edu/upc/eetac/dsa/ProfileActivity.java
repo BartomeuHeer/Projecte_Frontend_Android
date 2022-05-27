@@ -1,5 +1,6 @@
 package edu.upc.eetac.dsa;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,40 +21,49 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import edu.upc.eetac.dsa.models.User;
 
-public class LoginActivity extends AppCompatActivity {
 
-    private TextView userNameText, passText;
-    private Button logInBtn;
+
+
+
+
+public class ProfileActivity extends AppCompatActivity{
+
+    private TextView userNameText, passText, mailText;
+    private Button deleteBtn;
     ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        userNameText = (TextView) findViewById(R.id.username);
-        passText = (TextView) findViewById(R.id.password);
-        logInBtn = (Button) findViewById(R.id.accept);
+        setContentView(R.layout.activity_profile);
+        userNameText = (TextView) findViewById(R.id.profilename);
+        passText = (TextView) findViewById(R.id.profilepassword);
+        mailText = (TextView) findViewById(R.id.profilemail);
+
+        deleteBtn = (Button) findViewById(R.id.button_delete);
         apiInterface = Api.getClient();
-        logInBtn.setOnClickListener(new View.OnClickListener() {
+
+        profile();
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+
             }
         });
     }
 
-    private void login() {
+    private void profile() {
 
         String un = userNameText.getText().toString().trim();
-        String pass = passText.getText().toString().trim();
 
-        apiInterface.login(new LogInParams(un,pass)).enqueue(new Callback<User>() {
+
+        apiInterface.profile(new String (un)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.d("grup1",""+response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
-                    openMenuActivity();
+                    // Recoger y asignar al cuadro de texto;
                 }
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
@@ -65,8 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    private void openMenuActivity(){
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-    }
+
+
 }
