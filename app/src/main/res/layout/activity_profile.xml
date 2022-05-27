@@ -3,53 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="276dp"
-        android:layout_height="431dp"
+        android:layout_width="351dp"
+        android:layout_height="635dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833">
 
-        <Button
-            android:id="@+id/button_stats"
+        <TextView
+            android:id="@+id/profilename"
             android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:text="Stats" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <Button
-            android:id="@+id/button_profile"
-            android:layout_width="match_parent"
-            android:layout_height="67dp"
-            android:text="Profile" />
+            android:layout_height="80dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="85dp" />
 
-        <Button
-            android:id="@+id/button_shop"
+        <TextView
+            android:id="@+id/profilepassword"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:text="Shop" />
+            android:layout_height="80dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="85dp" />
+
+        <TextView
+            android:id="@+id/profilemail"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="84dp" />
 
         <Button
-            android:id="@+id/button_logout"
+            android:id="@+id/button_delete"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Log Out" />
+            android:layout_height="84dp"
+            android:text="Delete User" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

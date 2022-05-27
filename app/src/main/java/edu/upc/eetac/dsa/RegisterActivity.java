@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import edu.upc.eetac.dsa.databinding.ActivityRegisterBinding;
+//import edu.upc.eetac.dsa.databinding.ActivityRegisterBinding;
 import edu.upc.eetac.dsa.models.*;
 
 

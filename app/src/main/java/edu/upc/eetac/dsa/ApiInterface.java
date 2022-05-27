@@ -13,6 +13,8 @@ public interface ApiInterface {
     Call<List<Item>> getItems();
 
 
+
+
     @POST("users/login")
     Call<User> login(@Body LogInParams loginpar);
 
@@ -25,4 +27,7 @@ public interface ApiInterface {
 
     @GET("catalogo")
     Call<List<Item>> getCatalogo();
+
+    @POST("users/profile")
+    Call<User> profile (@Body String username);
 }
