@@ -32,7 +32,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPage"
+            android:name=".LandPageActivity"
             android:exported="false">
 
         </activity>
