@@ -4,6 +4,7 @@ package edu.upc.eetac.dsa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,16 +55,16 @@ public class ProfileActivity extends AppCompatActivity{
 
     private void profile() {
 
-        String un = userNameText.getText().toString().trim();
+        SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
+        String username = sharedPref.getString("username", "");
 
-
-        apiInterface.profile(new String (un)).enqueue(new Callback<User>() {
+        apiInterface.profile(new String (username)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.d("grup1",""+response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
-                    // Recoger y asignar al cuadro de texto;
+                    User user = response.body();
                 }
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
@@ -74,6 +75,11 @@ public class ProfileActivity extends AppCompatActivity{
             }
         });
 
+    }
+    private void pintamelo(User user){
+        userNameText.setText(user.getUsername());
+        passText.setText(user.getPassword());
+        mailText.setText(user.getEmail());
     }
 
 
