@@ -26,6 +26,8 @@ public class ShopActivity extends AppCompatActivity {
         setAdapter();
 
 
+
+
     }
 
     private void setAdapter() {
