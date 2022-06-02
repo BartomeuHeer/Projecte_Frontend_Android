@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void cancel(){
         Intent intent = new Intent(this, LandPageActivity.class);
+        startActivity(intent);
     }
     private void openMenuActivity(){
         Intent intent = new Intent(this, MenuActivity.class);
