@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         cancelBtn = (Button) findViewById(R.id.cancel);
         apiInterface = Api.getClient();
         sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
-        sharedPref.edit();
+        myEdit = sharedPref.edit();
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     myEdit.putString("username", un);
                     myEdit.putString("password", pass);
+                    myEdit.putBoolean("isLogged", true);
                     myEdit.apply();
                     openMenuActivity();
                 }

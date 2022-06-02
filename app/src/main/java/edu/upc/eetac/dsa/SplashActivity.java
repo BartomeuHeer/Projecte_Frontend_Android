@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -13,14 +14,20 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
-        String username = sharedPref.getString("username", "");
-        String password = sharedPref.getString("password", "");
-        Intent intent;
-        if(username.isEmpty() && password.isEmpty())
-            intent = new Intent(this, LandPageActivity.class);
-        else
-            intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        Boolean isLogged = sharedPref.getBoolean("isLogged", false);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent;
+                if(isLogged)
+                    intent = new Intent(SplashActivity.this, LandPageActivity.class);
+                else
+                    intent = new Intent(SplashActivity.this, MenuActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },2000);
+
     }
 }
