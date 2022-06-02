@@ -8,25 +8,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import edu.upc.eetac.dsa.models.*;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.myViewHolder>{
 
-    private ArrayList<Item> itemList;
+    private List<Item> itemList;
 
-    public RecyclerViewAdapter (ArrayList<Item> itemList){
+    public RecyclerViewAdapter (List<Item> itemList){
         this.itemList=itemList;
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{
-        private TextView nameText;
+        private TextView nameText,priceText;
 
         public myViewHolder (final View view)
         {
             super(view);
             nameText = view.findViewById(R.id.textView2);
+            priceText = view.findViewById(R.id.textView3);
         }
 
     }
@@ -40,7 +41,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.myViewHolder holder, int position) {
         String name = itemList.get(position).getName();
+        String price = Double.toString(itemList.get(position).getCoins());
         holder.nameText.setText(name);
+        holder.priceText.setText(price);
 
     }
 

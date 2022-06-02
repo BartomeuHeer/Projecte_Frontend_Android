@@ -9,7 +9,7 @@ import retrofit2.http.*;
 
 public interface ApiInterface {
 
-    @GET("catalogo")
+    @GET("users/catalogo")
     Call<List<Item>> getItems();
 
 
