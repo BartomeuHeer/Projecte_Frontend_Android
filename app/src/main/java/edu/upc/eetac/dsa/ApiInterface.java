@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa;
 import java.util.List;
 
+import edu.upc.eetac.dsa.models.Issue;
 import edu.upc.eetac.dsa.models.Item;
 import edu.upc.eetac.dsa.models.LogInParams;
 import edu.upc.eetac.dsa.models.User;
@@ -9,7 +10,7 @@ import retrofit2.http.*;
 
 public interface ApiInterface {
 
-    @GET("catalogo")
+    @GET("users/catalogo")
     Call<List<Item>> getItems();
 
     @POST("users/login")
@@ -27,4 +28,7 @@ public interface ApiInterface {
 
     @POST("users/profile")
     Call<User> profile (@Body String username);
+
+    @POST("users/issue")
+    Call<Void> sendIssue(@Body Issue issue);
 }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainPage extends AppCompatActivity {
+public class LandPageActivity extends AppCompatActivity {
     private Button loginButton;
     private Button registerButton;
 

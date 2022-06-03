@@ -15,7 +15,7 @@ public class Api {
                 .create();
         //if (retrofit==null) {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://147.83.7.204:8080/dsaApp/")
+                .baseUrl("http://10.0.2.2:8080/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         //}
