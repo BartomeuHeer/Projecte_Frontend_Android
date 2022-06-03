@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("grup1",""+response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
+
                     openMenuActivity();
                 }
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();

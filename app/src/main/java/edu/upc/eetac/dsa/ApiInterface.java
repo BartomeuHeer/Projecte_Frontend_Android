@@ -12,9 +12,6 @@ public interface ApiInterface {
     @GET("catalogo")
     Call<List<Item>> getItems();
 
-
-
-
     @POST("users/login")
     Call<User> login(@Body LogInParams loginpar);
 
