@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40pt"
         android:gravity="center"
-        android:text="Main Page"
+        android:text="@string/title_main_page"
         android:textColor="@color/white"
         android:textSize="40sp" />
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginHorizontal="10pt"
-        android:text="LogIn"
+        android:text="@string/logIn_btn"
         android:textColor="@color/white"
         android:textSize="40sp" />
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/loginBtn"
         android:layout_marginHorizontal="10pt"
-        android:text="Register"
+        android:text="@string/register_btn"
         android:textSize="40sp" />
 
 </RelativeLayout>

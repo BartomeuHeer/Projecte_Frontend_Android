@@ -9,10 +9,10 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LogIn"
-        android:textSize="30sp"
         android:layout_marginBottom="40pt"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/logIn_btn"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/username"
@@ -21,7 +21,7 @@
         android:layout_below="@id/title"
         android:autofillHints="name"
         android:gravity="center_vertical"
-        android:hint="User Name"
+        android:hint="@string/username"
         android:inputType="text"
         android:minHeight="48dp" />
 
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
         android:autofillHints="name"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
