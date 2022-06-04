@@ -1,8 +1,31 @@
 <resources>
     <string name="app_name">Frontend_Android</string>
+    <!-- Main page -->
+    <string name="title_main_page">Main Page</string>
     <string name="logIn_btn">LogIn</string>
     <string name="register_btn">Register</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_register">REGISTER</string>
+    <string name="cancel_button">Cancel</string>
+    <!-- Register -->
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="repeat_email">Repeat Email</string>
+    <string name="password">Password</string>
+    <string name="repeat_pass">Repeat Password</string>
+    <!-- Menu -->
+    <string name="stats_btn">Stats</string>
+    <string name="profile_btn">Profile</string>
+    <string name="shop_btn">Shop</string>
+    <string name="log_out_btn">Log Out</string>
+    <string name="languages_btn">Languages</string>
+    <string name="issues_btn">Issues</string>
+    <!-- Languages -->
+    <string name="language_es">Spanish</string>
+    <string name="language_english">English</string>
+    <string name="language_catalan">Catalan</string>
+
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

@@ -7,8 +7,9 @@
     tools:context=".MenuActivity">
 
     <LinearLayout
-        android:layout_width="276dp"
-        android:layout_height="431dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="285dp"
+        android:layout_height="557dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +20,7 @@
             android:id="@+id/button_stats"
             android:layout_width="match_parent"
             android:layout_height="69dp"
-            android:text="Stats" />
+            android:text="@string/stats_btn" />
 
         <Space
             android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             android:id="@+id/button_profile"
             android:layout_width="match_parent"
             android:layout_height="67dp"
-            android:text="Profile" />
+            android:text="@string/profile_btn" />
 
         <Space
             android:layout_width="match_parent"
@@ -39,7 +40,7 @@
             android:id="@+id/button_shop"
             android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:text="Shop" />
+            android:text="@string/shop_btn" />
 
         <Space
             android:layout_width="match_parent"
@@ -49,7 +50,25 @@
             android:id="@+id/button_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Log Out" />
-    </LinearLayout>
+            android:text="@string/log_out_btn" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
+        <Button
+            android:id="@+id/btnIssues"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/issues_btn" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/languages_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/languages_btn"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

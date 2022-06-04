@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         apiInterface.login(new LogInParams(un,pass)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Log.d("grup1",""+response.code());
+                Log.d("grup1Bien",""+response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
                     myEdit.putString("username", un);

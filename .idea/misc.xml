@@ -17,7 +17,16 @@
         <entry key="..\:/Users/usuari/StudioProjects/Projecte_Frontend_Android/app/src/main/res/layout/activity_shop.xml" value="0.25" />
         <entry key="..\:/Users/usuari/StudioProjects/Projecte_Frontend_Android/app/src/main/res/layout/activity_stats.xml" value="0.26832641770401106" />
         <entry key="..\:/Users/usuari/StudioProjects/Projecte_Frontend_Android/app/src/main/res/layout/item_shop.xml" value="0.3333333333333333" />
+<<<<<<< HEAD
         <entry key="..\:/Users/usuari/StudioProjects/Projecte_Frontend_Android/app/src/main/res/layout/player_for_stats.xml" value="0.14666666666666667" />
+=======
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_issues.xml" value="0.264" />
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_main_page.xml" value="0.1" />
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_menu.xml" value="0.2" />
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/uni/DSA/Front_end/Projecte_Frontend_Android/app/src/main/res/layout/activity_register.xml" value="0.13994565217391305" />
+>>>>>>> 0f6f6021a606c8cb5678661e5ad76ecc22a5c9e7
       </map>
     </option>
   </component>

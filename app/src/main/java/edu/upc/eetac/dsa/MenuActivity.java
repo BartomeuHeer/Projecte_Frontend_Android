@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button profile,stats,shop,logout;
+    private Button profile,stats,shop,logout, issue, languages;
 
     ApiInterface apiInterface;
 
@@ -23,6 +23,8 @@ public class MenuActivity extends AppCompatActivity {
         stats = (Button) findViewById(R.id.button_stats);
         shop = (Button) findViewById(R.id.button_shop);
         logout = (Button) findViewById(R.id.button_logout);
+        issue = (Button) findViewById(R.id.btnIssues);
+        languages = (Button) findViewById(R.id.languages_button);
         apiInterface = Api.getClient();
 
         profile.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +50,19 @@ public class MenuActivity extends AppCompatActivity {
 
         });
 
+        issue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openIssueActivity();
+            }
+        });
+        languages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLanguagesActivity();
+            }
+        });
+
     }
 
     private void openProfileActivity(){
@@ -63,7 +78,14 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ShopActivity.class);
         startActivity(intent);
     }
-
+    private void openIssueActivity(){
+        Intent intent = new Intent(this, IssuesActivity.class);
+        startActivity(intent);
+    }
+    private void openLanguagesActivity(){
+        Intent intent = new Intent(this, LanguageActivity.class);
+        startActivity(intent);
+    }
 
 
 }

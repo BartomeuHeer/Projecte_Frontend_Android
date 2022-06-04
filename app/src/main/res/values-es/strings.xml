@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Frontend_Android</string>
+    <!-- Main page -->
+    <string name="title_main_page">Pagina principal</string>
+    <string name="logIn_btn">Log in</string>
+    <string name="register_btn">Registrarse</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_register">Registrarse</string>
+    <string name="cancel_button">Cancelar</string>
+    <!-- Register -->
+    <string name="username">Usuario</string>
+    <string name="email">Correo</string>
+    <string name="repeat_email">Repita Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="repeat_pass">Repita contraseña</string>
+    <!-- Menu -->
+    <string name="stats_btn">Estadisticas</string>
+    <string name="profile_btn">Perfil</string>
+    <string name="shop_btn">Tienda</string>
+    <string name="log_out_btn">Log Out</string>
+    <string name="languages_btn">Idiomas</string>
+    <string name="issues_btn">Problemas</string>
+    <!-- Languages -->
+    <string name="language_es">Español</string>
+    <string name="language_english">Ingles</string>
+    <string name="language_catalan">Catalan</string>
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>
