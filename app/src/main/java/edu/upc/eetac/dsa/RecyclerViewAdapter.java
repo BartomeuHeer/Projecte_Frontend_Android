@@ -16,9 +16,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Item> itemList;
 
+
     public RecyclerViewAdapter (List<Item> itemList){
         this.itemList=itemList;
     }
+
+    //public RecyclerViewAdapter (List<Stats> statsList){
+        //this.statsList=statsList;
+    //}
 
     public class myViewHolder extends RecyclerView.ViewHolder{
         private TextView nameText,priceText;
@@ -34,7 +39,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_shop,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shop,parent,false);
         return new myViewHolder(itemView);
     }
 
