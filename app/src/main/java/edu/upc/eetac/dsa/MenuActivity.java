@@ -3,6 +3,7 @@ package edu.upc.eetac.dsa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -62,6 +63,12 @@ public class MenuActivity extends AppCompatActivity {
                 openLanguagesActivity();
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logOut();
+            }
+        });
 
     }
 
@@ -85,6 +92,17 @@ public class MenuActivity extends AppCompatActivity {
     private void openLanguagesActivity(){
         Intent intent = new Intent(this, LanguageActivity.class);
         startActivity(intent);
+    }
+    private void logOut(){
+        SharedPreferences myPrefs = getSharedPreferences("LoginData",
+                MODE_PRIVATE);
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.commit();
+        Intent intent = new Intent(MenuActivity.this,
+                LandPageActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

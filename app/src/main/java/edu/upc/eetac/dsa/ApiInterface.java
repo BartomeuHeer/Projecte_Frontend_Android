@@ -29,8 +29,8 @@ public interface ApiInterface {
     @GET("catalogo")
     Call<List<Item>> getCatalogo();
 
-    @POST("users/profile")
-    Call<User> profile (@Body String username);
+    @GET("users/{username}")
+    Call<User> profile (@Path("username") String username);
 
     @POST("users/issue")
     Call<Void> sendIssue(@Body Issue issue);
