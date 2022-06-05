@@ -1,13 +1,17 @@
 package edu.upc.eetac.dsa;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,8 @@ public class StatsActivity extends AppCompatActivity {
     private List<Stats> statsList;
     private RecyclerView recyclerView;
     ApiInterface apiInterface;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -42,6 +48,7 @@ public class StatsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
     }
 
     public void setStatsInfo(){
@@ -52,6 +59,7 @@ public class StatsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("statsbien", response.body().get(0).getUsername());
                     setAdapter(response.body());
+
                 }
                 else
                 {
@@ -63,8 +71,6 @@ public class StatsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Stats>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 

@@ -14,13 +14,11 @@ public interface ApiInterface {
     @GET("users/catalogo")
     Call<List<Item>> getItems();
 
-
     @GET("stats/ranking")
     Call<List<Stats>> getRanking();
 
     @POST("users/login")
     Call<User> login(@Body LogInParams loginpar);
-
 
     @POST("users/register")
     Call<User> register(@Body User user);
