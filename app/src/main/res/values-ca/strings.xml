@@ -8,6 +8,7 @@
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_register">Registrar-se</string>
     <string name="cancel_button">Cancelar</string>
+    <string name="title_activity_stats">Estadistiques</string>
     <!-- Register -->
     <string name="username">Usuari</string>
     <string name="email">Correu</string>

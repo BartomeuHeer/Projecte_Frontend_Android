@@ -3,10 +3,13 @@ package edu.upc.eetac.dsa;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,12 +26,15 @@ public class RecyclerViewAdapterStats extends RecyclerView.Adapter<RecyclerViewA
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         private TextView nameText,pointsText;
+        private ImageView img;
 
         public myViewHolder (final View view)
         {
             super(view);
             nameText = view.findViewById(R.id.name_player);
             pointsText = view.findViewById(R.id.points);
+            img = view.findViewById(R.id.imageView2);
+
         }
 
     }
@@ -43,8 +49,11 @@ public class RecyclerViewAdapterStats extends RecyclerView.Adapter<RecyclerViewA
     public void onBindViewHolder(@NonNull RecyclerViewAdapterStats.myViewHolder holder, int position) {
         String name = statsList.get(position).getUsername();
         String points = Integer.toString(statsList.get(position).getPoints());
+        String avatarurl= statsList.get(position).getAvatar();
         holder.nameText.setText(name);
         holder.pointsText.setText(points);
+        Picasso.get().load(statsList.get(position).getAvatar()).into(holder.img);
+
 
     }
 
