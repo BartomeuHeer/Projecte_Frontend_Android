@@ -100,7 +100,8 @@ public class MenuActivity extends AppCompatActivity {
         editor.clear();
         editor.commit();
         Intent intent = new Intent(MenuActivity.this,
-                LanguageActivity.class);
+                LandPageActivity.class);
+        startActivity(intent);
         finish();
     }
 
