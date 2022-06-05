@@ -8,6 +8,7 @@
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_register">Registrar-se</string>
     <string name="cancel_button">Cancelar</string>
+    <string name="title_activity_stats">Estadistiques</string>
     <!-- Register -->
     <string name="username">Usuari</string>
     <string name="email">Correu</string>
@@ -25,7 +26,8 @@
     <string name="language_es">Espanyol</string>
     <string name="language_english">Angles</string>
     <string name="language_catalan">Catala</string>
-
+    <!-- LogIn page -->
+    <string name="sign_in">Entra</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

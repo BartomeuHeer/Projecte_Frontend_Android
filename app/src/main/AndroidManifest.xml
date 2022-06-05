@@ -42,13 +42,17 @@
             android:exported="false" />
         <activity
             android:name=".LandPageActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ShopActivity"
             android:exported="false" />
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

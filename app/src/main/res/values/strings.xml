@@ -6,6 +6,7 @@
     <string name="register_btn">Register</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_register">REGISTER</string>
+    <string name="title_activity_stats">STATISTICS</string>
     <string name="cancel_button">Cancel</string>
     <!-- Register -->
     <string name="username">Username</string>
@@ -24,7 +25,8 @@
     <string name="language_es">Spanish</string>
     <string name="language_english">English</string>
     <string name="language_catalan">Catalan</string>
-
+    <!-- LogIn page -->
+    <string name="sign_in">Sign In</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
