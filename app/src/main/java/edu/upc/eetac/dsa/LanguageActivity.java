@@ -5,12 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LanguageActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
@@ -25,21 +31,25 @@ public class LanguageActivity extends AppCompatActivity {
         Button spabut = (Button) findViewById(R.id.spanish_button);
         Button engbut = (Button) findViewById(R.id.english_button);
         apiInterface = Api.getClient();
+        SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
+        String username = sharedPref.getString("username", "");
 
         catbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLanguage("ca");
                 recreate();
-                //updateLangUser("ca");
+                updateLangUser(username,"ca");
+
             }
         });
         spabut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLanguage("es");
+                updateLangUser(username,"es");
                 recreate();
-                //updateLangUser("es");
+
 
             }
         });
@@ -48,7 +58,8 @@ public class LanguageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setLanguage("en");
                 recreate();
-                //updateLangUser("en");
+                updateLangUser(username,"en");
+
 
             }
         });
@@ -74,7 +85,27 @@ public class LanguageActivity extends AppCompatActivity {
     public void onBackPressed() {
         startActivity(new Intent(this, MenuActivity.class));
     }
-/*
+
+
+
+    private void updateLangUser (String username,String lang){
+        apiInterface.updateUserLanguage(new String(username),lang).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.d("grup1", "" + response.code());
+                String c = Integer.toString(response.code());
+                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("grup1", "" + t.getMessage());
+                Toast.makeText(getApplicationContext(),  "No pude conectarme al server :( ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+    /*
     private void updateLangUser(String lang) {
         //first we get the user
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
