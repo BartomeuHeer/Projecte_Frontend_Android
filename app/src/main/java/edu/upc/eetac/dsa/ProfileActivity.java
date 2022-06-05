@@ -45,7 +45,6 @@ public class ProfileActivity extends AppCompatActivity{
         apiInterface = Api.getClient();
 
         User user = profile();
-        //pintamelo(user);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,14 +57,20 @@ public class ProfileActivity extends AppCompatActivity{
 
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
-        final User[] usuario = new User[1];
+        User user = new User();
+        //final User[] usuario = new User[1];
         apiInterface.profile(new String (username)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.d("grup1",""+response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
-                    usuario[0] = response.body();
+                    user.setUsername(response.body().getUsername());
+                    user.setEmail(response.body().getEmail());
+                    user.setCoins(response.body().getCoins());
+                    user.setPassword(response.body().getPassword());
+                    user.setLanguage(response.body().getLanguage());
+                    pintamelo(user);
                 }
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
@@ -75,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity{
                 Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
             }
         });
-        return usuario[0];
+        return user;
     }
     private void pintamelo(User user){
         userNameText.setText(user.getUsername());

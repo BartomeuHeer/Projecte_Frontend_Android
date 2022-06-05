@@ -14,6 +14,7 @@ public class User {
         this.coins = 50;
         this.language ="English";
     }
+    public User(){}
 
     public String getUsername() {
         return username;
