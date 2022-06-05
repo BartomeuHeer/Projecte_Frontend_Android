@@ -26,7 +26,8 @@
     <string name="language_english">Ingles</string>
     <string name="language_catalan">Catalan</string>
 
-
+    <!-- LogIn page -->
+    <string name="sign_in">Entra</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

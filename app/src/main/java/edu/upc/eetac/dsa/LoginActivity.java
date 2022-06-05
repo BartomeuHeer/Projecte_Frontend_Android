@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor myEdit;
     private TextView userNameText, passText;
-    private Button logInBtn, cancelBtn;
+    private Button logInBtn;
     ApiInterface apiInterface;
 
     @Override
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         userNameText = (TextView) findViewById(R.id.username);
         passText = (TextView) findViewById(R.id.password);
         logInBtn = (Button) findViewById(R.id.accept);
-        cancelBtn = (Button) findViewById(R.id.cancel);
+        //cancelBtn = (Button) findViewById(R.id.cancel);
         apiInterface = Api.getClient();
         sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
         myEdit = sharedPref.edit();
@@ -43,13 +43,13 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        /*cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
             }
         });
-
+*/
     }
 
     private void login() {
@@ -80,10 +80,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void cancel(){
+    /*private void cancel(){
         Intent intent = new Intent(this, LandPageActivity.class);
         startActivity(intent);
-    }
+    }*/
     private void openMenuActivity(){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
