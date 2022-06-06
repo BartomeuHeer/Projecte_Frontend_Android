@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_account"
+        android:icon="@mipmap/baseline_perm_identity_black_20"
+        android:title="@string/nav_account"/>
+    <item android:id="@+id/nav_settings"
+        android:icon="@mipmap/baseline_settings_black_20"
+        android:title="@string/nav_settings"/>
+    <item android:id="@+id/nav_logout"
+        android:icon="@mipmap/baseline_logout_black_20"
+        android:title="@string/nav_logout"/>
+    <item android:id="@+id/nav_issues"
+        android:icon="@mipmap/baseline_report_problem_black_20"
+        android:title="@string/issues_btn"/>
+</menu>
