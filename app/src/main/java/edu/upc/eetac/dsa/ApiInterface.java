@@ -35,6 +35,6 @@ public interface ApiInterface {
     @POST("users/issue")
     Call<Void> sendIssue(@Body Issue issue);
 
-    @PUT ("users/{username}")
-    Call<Void> updateUser(@Path("user") String username,@Body User user);
+    @PUT ("users/{username}/updatelanguage")
+    Call<Void> updateUserLanguage(@Path("username") String username,@Body String language);
 }

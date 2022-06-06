@@ -1,5 +1,6 @@
 package edu.upc.eetac.dsa;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,5 +75,8 @@ public class StatsActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        finish();
     }
 }
