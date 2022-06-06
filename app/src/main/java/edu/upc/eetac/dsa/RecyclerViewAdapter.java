@@ -3,6 +3,7 @@ package edu.upc.eetac.dsa;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import edu.upc.eetac.dsa.models.*;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.myViewHolder>{
 
     private List<Item> itemList;
+    ApiInterface apiInterface;
 
 
     public RecyclerViewAdapter (List<Item> itemList){
@@ -31,6 +33,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class myViewHolder extends RecyclerView.ViewHolder{
         private TextView nameText,priceText;
         private ImageView itempic;
+        private Button buyButton;
+
+
 
         public myViewHolder (final View view)
         {
@@ -38,6 +43,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             nameText = view.findViewById(R.id.textView2);
             priceText = view.findViewById(R.id.textView3);
             itempic = view.findViewById(R.id.imageView_shop);
+            buyButton = (Button) view.findViewById(R.id.button_buy);
+            buyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+
+            });
         }
 
     }
