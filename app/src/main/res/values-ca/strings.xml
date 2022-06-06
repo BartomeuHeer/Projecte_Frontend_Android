@@ -19,9 +19,11 @@
     <string name="stats_btn">Estadistiques</string>
     <string name="profile_btn">Perfil</string>
     <string name="shop_btn">Botiga</string>
+    <string name="title_activity_shop">Botiga</string>
     <string name="log_out_btn">Log Out</string>
     <string name="languages_btn">Idiomes</string>
     <string name="issues_btn">Assumptes</string>
+    <string name="button_buy">Comprar</string>
     <!-- Languages -->
     <string name="language_es">Espanyol</string>
     <string name="language_english">Angles</string>

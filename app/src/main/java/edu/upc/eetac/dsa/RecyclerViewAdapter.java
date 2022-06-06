@@ -3,10 +3,13 @@ package edu.upc.eetac.dsa;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,12 +30,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class myViewHolder extends RecyclerView.ViewHolder{
         private TextView nameText,priceText;
+        private ImageView itempic;
 
         public myViewHolder (final View view)
         {
             super(view);
             nameText = view.findViewById(R.id.textView2);
             priceText = view.findViewById(R.id.textView3);
+            itempic = view.findViewById(R.id.imageView_shop);
         }
 
     }
@@ -49,6 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String price = Double.toString(itemList.get(position).getCoins());
         holder.nameText.setText(name);
         holder.priceText.setText(price);
+        Picasso.get().load(itemList.get(position).getUrlPic()).into(holder.itempic);
 
     }
 

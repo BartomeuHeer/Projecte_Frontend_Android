@@ -19,9 +19,11 @@
     <string name="stats_btn">Estadisticas</string>
     <string name="profile_btn">Perfil</string>
     <string name="shop_btn">Tienda</string>
+    <string name="title_activity_shop">Tienda</string>
     <string name="log_out_btn">Log Out</string>
     <string name="languages_btn">Idiomas</string>
     <string name="issues_btn">Problemas</string>
+    <string name="button_buy">Comprar</string>
     <!-- Languages -->
     <string name="language_es">Español</string>
     <string name="language_english">Ingles</string>

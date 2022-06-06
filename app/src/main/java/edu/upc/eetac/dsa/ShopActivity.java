@@ -24,6 +24,7 @@ public class ShopActivity extends AppCompatActivity {
     private List<Item> itemList;
     private RecyclerView recyclerView;
     ApiInterface apiInterface;
+    private TextView remaining_coins;
 
 
 
@@ -32,6 +33,7 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         recyclerView = findViewById(R.id.recyclerViewAct);
+        remaining_coins = findViewById(R.id.remainin_coins_text);
         itemList = new ArrayList<>();
         apiInterface = Api.getClient();
 

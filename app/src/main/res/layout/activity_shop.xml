@@ -6,13 +6,59 @@
     android:layout_height="match_parent"
     android:padding="6dip">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="322dp"
+        android:layout_height="65dp"
+        android:text="@string/title_activity_shop"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAct"
-        android:layout_width="409dp"
-        android:layout_height="285dp"
+        android:layout_width="354dp"
+        android:layout_height="480dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintVertical_bias="0.819" />
+
+    <LinearLayout
+        android:layout_width="188dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewAct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/label_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coins:" />
+
+        <Space
+            android:layout_width="57dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/remainin_coins_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
