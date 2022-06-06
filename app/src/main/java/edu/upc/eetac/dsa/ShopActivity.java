@@ -1,5 +1,6 @@
 package edu.upc.eetac.dsa;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class ShopActivity extends AppCompatActivity {
     private List<Item> itemList;
     private RecyclerView recyclerView;
     ApiInterface apiInterface;
+    private TextView remaining_coins;
 
 
 
@@ -32,6 +34,7 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         recyclerView = findViewById(R.id.recyclerViewAct);
+        remaining_coins = findViewById(R.id.remainin_coins_text);
         itemList = new ArrayList<>();
         apiInterface = Api.getClient();
 
@@ -48,19 +51,44 @@ public class ShopActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    private void setInfo(int coins)
+    {
+        remaining_coins.setText(Integer.toString(coins));
+    }
+
 
     public void setItemInfo(){
-        apiInterface.getItems().enqueue(new Callback<List<Item>>(){
+        SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
+        String username = sharedPref.getString("username", "");
+        apiInterface.getUser(new String (username)).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Log.d("grup1",""+response.code());
+                String c = Integer.toString(response.code());
+                if (response.isSuccessful()) {
+                    setInfo(response.body().getCoins());
+
+                }
+                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("grup1",""+t.getMessage());
+                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        apiInterface.getItemsforShop().enqueue(new Callback<List<Item>>(){
 
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
                 if (response.isSuccessful()) {
-                    Log.d("catalogobien", response.body().get(0).getName());
+                    Log.d("shopbien", response.body().get(0).getName());
                     setAdapter(response.body());
                 }
                 else
                 {
-                    Log.d("catalogomal", Integer.toString(response.code()));
+                    Log.d("shopmal", Integer.toString(response.code()));
                 }
 
             }

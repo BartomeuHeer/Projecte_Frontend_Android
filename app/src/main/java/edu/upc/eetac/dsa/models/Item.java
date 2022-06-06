@@ -4,11 +4,13 @@ public class Item {
     private String name;
     private String description;
     private double coins;
+    private String urlPic;
 
-    public Item(String name, String description, double coins) {
+    public Item(String name, String description, double coins,String urlPic) {
         this.name = name;
         this.description = description;
         this.coins = coins;
+        this.urlPic=urlPic;
     }
 
     public String getName() {
@@ -33,5 +35,13 @@ public class Item {
 
     public void setCoins(double coins) {
         this.coins = coins;
+    }
+
+    public String getUrlPic() {
+        return this.urlPic;
+    }
+
+    public void setUrlPic(String urlPic) {
+        this.urlPic = urlPic;
     }
 }

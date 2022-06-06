@@ -6,9 +6,11 @@
     <string name="logIn_btn">LogIn</string>
     <string name="register_btn">Register</string>
     <string name="title_activity_menu">MenuActivity</string>
-    <string name="title_activity_register">REGISTER</string>
-    <string name="title_activity_stats">STATISTICS</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_stats">Statistics</string>
+    <string name="title_activity_shop">Shop</string>
     <string name="cancel_button">Cancel</string>
+    <string name="button_buy">Buy</string>
     <!-- Register -->
     <string name="username">Username</string>
     <string name="email">Email</string>

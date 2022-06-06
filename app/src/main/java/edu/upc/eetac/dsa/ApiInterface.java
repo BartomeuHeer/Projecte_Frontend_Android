@@ -29,6 +29,9 @@ public interface ApiInterface {
     @GET("catalogo")
     Call<List<Item>> getCatalogo();
 
+    @GET("items")
+    Call<List<Item>> getItemsforShop();
+
     @GET("users/{username}")
     Call<User> profile (@Path("username") String username);
 
@@ -37,4 +40,7 @@ public interface ApiInterface {
 
     @PUT ("users/{username}/updatelanguage")
     Call<Void> updateUserLanguage(@Path("username") String username,@Body String language);
+
+    @GET("users/{username}")
+    Call<User> getUser(@Path("username") String username);
 }
