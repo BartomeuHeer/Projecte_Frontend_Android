@@ -39,6 +39,9 @@
     <string name="nav_account">Mi perfil</string>
     <string name="nav_settings">Preferencias</string>
     <string name="nav_logout">Log out</string>
+    <!-- Profile activity -->
+    <string name="delete_btn">Borra usuario</string>
+    <string name="update_user">Actualiza usuario</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

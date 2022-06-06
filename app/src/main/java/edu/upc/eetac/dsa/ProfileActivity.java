@@ -29,7 +29,7 @@ import edu.upc.eetac.dsa.models.User;
 
 public class ProfileActivity extends AppCompatActivity{
 
-    private TextView userNameText, passText, mailText;
+    private TextView userNameText, passText, mailText,languageText;
     private Button deleteBtn;
     ApiInterface apiInterface;
 
@@ -37,11 +37,11 @@ public class ProfileActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        userNameText = (TextView) findViewById(R.id.profilename);
-        passText = (TextView) findViewById(R.id.profilepassword);
-        mailText = (TextView) findViewById(R.id.profilemail);
-
-        deleteBtn = (Button) findViewById(R.id.button_delete);
+        userNameText = (TextView) findViewById(R.id.usernameBox);
+        passText = (TextView) findViewById(R.id.passBox);
+        mailText = (TextView) findViewById(R.id.emailBox);
+        languageText = (TextView) findViewById(R.id.languageBox);
+        deleteBtn = (Button) findViewById(R.id.delete_btn);
         apiInterface = Api.getClient();
 
         User user = profile();
@@ -86,5 +86,6 @@ public class ProfileActivity extends AppCompatActivity{
         userNameText.setText(user.getUsername());
         passText.setText(user.getPassword());
         mailText.setText(user.getEmail());
+        //languageText.setText(user.getLanguage());
     }
 }
