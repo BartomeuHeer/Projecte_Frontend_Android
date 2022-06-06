@@ -27,6 +27,8 @@ public class ShopActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     ApiInterface apiInterface;
     private TextView remaining_coins;
+    SharedPreferences sharedPref;
+    String username;
 
 
 
@@ -38,47 +40,29 @@ public class ShopActivity extends AppCompatActivity {
         remaining_coins = findViewById(R.id.remainin_coins_text);
         itemList = new ArrayList<>();
         apiInterface = Api.getClient();
+        sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
+        username = sharedPref.getString("username", "");
 
         setItemInfo();
+
 
 
     }
 
     private void setAdapter(List<Item> list) {
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(list);
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(list, username);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+
     }
 
     private void setInfo(int coins)
     {
         remaining_coins.setText(Integer.toString(coins));
-    }
-
-
-    public void setItemInfo(){
-        SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
-        String username = sharedPref.getString("username", "");
-        apiInterface.getUser(new String (username)).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                Log.d("grup1",""+response.code());
-                String c = Integer.toString(response.code());
-                if (response.isSuccessful()) {
-                    setInfo(response.body().getCoins());
-
-                }
-                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.d("grup1",""+t.getMessage());
-                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         apiInterface.getItemsforShop().enqueue(new Callback<List<Item>>(){
 
             @Override
@@ -101,6 +85,30 @@ public class ShopActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void setItemInfo(){
+
+        apiInterface.getUser(new String (username)).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Log.d("grup1",""+response.code());
+                String c = Integer.toString(response.code());
+                if (response.isSuccessful()) {
+                    setInfo(response.body().getCoins());
+
+                }
+                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("grup1",""+t.getMessage());
+                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
     }
 

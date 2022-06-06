@@ -5,6 +5,7 @@ import edu.upc.eetac.dsa.models.Issue;
 import edu.upc.eetac.dsa.models.Item;
 import edu.upc.eetac.dsa.models.LogInParams;
 import edu.upc.eetac.dsa.models.Stats;
+import edu.upc.eetac.dsa.models.ToBuyItems;
 import edu.upc.eetac.dsa.models.User;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -23,13 +24,16 @@ public interface ApiInterface {
     @POST("users/register")
     Call<User> register(@Body User user);
 
+    @PUT("users/buyItem")
+    Call<User> buyItems (@Body ToBuyItems toBuyItems);
+
     @GET("users")
     Call<List<User>> getUsers();
 
     @GET("catalogo")
     Call<List<Item>> getCatalogo();
 
-    @GET("items")
+    @GET("items/items")
     Call<List<Item>> getItemsforShop();
 
     @GET("users/{username}")
