@@ -1,13 +1,21 @@
 package edu.upc.eetac.dsa;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -17,24 +25,46 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_menu);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        profile = (Button) findViewById(R.id.button_profile);
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setItemIconTintList(null);
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case(R.id.nav_account):
+                        openProfileActivity();
+                        break;
+                    case(R.id.nav_settings):
+                        openLanguagesActivity();
+                        break;
+                    case(R.id.nav_logout):
+                        logOut();
+                        break;
+                    case(R.id.nav_issues):
+                        openIssueActivity();
+                        break;
+                }
+                return true;
+            }
+        });
+
         stats = (Button) findViewById(R.id.button_stats);
         shop = (Button) findViewById(R.id.button_shop);
-        logout = (Button) findViewById(R.id.button_logout);
-        issue = (Button) findViewById(R.id.btnIssues);
-        languages = (Button) findViewById(R.id.languages_button);
+
         apiInterface = Api.getClient();
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProfileActivity();
-            }
-
-        });
 
         stats.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +73,7 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
+
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,26 +81,6 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
-
-        issue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openIssueActivity();
-            }
-        });
-        languages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLanguagesActivity();
-            }
-        });
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logOut();
-            }
-        });
-
     }
 
     private void openProfileActivity(){
@@ -104,6 +115,5 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
 }

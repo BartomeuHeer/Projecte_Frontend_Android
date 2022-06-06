@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Frontend_Android</string>
+    <string name="app_name">The binding of Gilbert</string>
+    <string name="copyright">Grup 1</string>
     <!-- Main page -->
     <string name="title_main_page">Pagina principal</string>
     <string name="logIn_btn">Log in</string>
@@ -22,13 +23,17 @@
     <string name="log_out_btn">Log Out</string>
     <string name="languages_btn">Idiomes</string>
     <string name="issues_btn">Assumptes</string>
+    <string name="play_btn">Jugar</string>
     <!-- Languages -->
     <string name="language_es">Espanyol</string>
     <string name="language_english">Angles</string>
     <string name="language_catalan">Catala</string>
     <!-- LogIn page -->
     <string name="sign_in">Entra</string>
-
+    <!-- Nav menu -->
+    <string name="nav_account">El meu perfil</string>
+    <string name="nav_settings">Preferencies</string>
+    <string name="nav_logout">Log out</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
