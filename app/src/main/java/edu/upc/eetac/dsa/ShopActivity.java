@@ -47,6 +47,7 @@ public class ShopActivity extends AppCompatActivity {
 
 
 
+
     }
 
     private void setAdapter(List<Item> list) {

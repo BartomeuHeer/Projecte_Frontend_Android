@@ -27,6 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Item> itemList;
     private String username;
+    //private TextView remaining_coins;
     ApiInterface apiInterface;
     String name;
 
@@ -65,12 +66,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 public void onClick(View v) {
 
                     Log.d("recyclerbutton", username);
+                    Log.d("recyclerbutton", name);
                     apiInterface.buyItems(new ToBuyItems(name,username)).enqueue(
                             new Callback<User>() {
                                 @Override
                                 public void onResponse(Call<User> call, Response<User> response) {
+                                    //remaining_coins.setText(Integer.toString(response.body().getCoins()));
+                                    //Log.d("recyclercoins", Integer.toString(response.body().getCoins()));
 
-                                    Log.d("recyclercoins", Integer.toString(response.body().getCoins()));
                                 }
 
                                 @Override
