@@ -30,7 +30,7 @@ import edu.upc.eetac.dsa.models.User;
 public class ProfileActivity extends AppCompatActivity{
 
     private TextView userNameText, passText, mailText,languageText;
-    private Button deleteBtn;
+    private Button deleteBtn, updateBtn;
     ApiInterface apiInterface;
 
     @Override
@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity{
         mailText = (TextView) findViewById(R.id.emailBox);
         languageText = (TextView) findViewById(R.id.languageBox);
         deleteBtn = (Button) findViewById(R.id.delete_btn);
+        updateBtn = (Button) findViewById(R.id.update_btn);
         apiInterface = Api.getClient();
 
         User user = profile();
@@ -51,6 +52,12 @@ public class ProfileActivity extends AppCompatActivity{
 
             }
         });
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openUpdateUserActivity();
+            }
+        });
     }
 
     private User profile() {
@@ -58,7 +65,6 @@ public class ProfileActivity extends AppCompatActivity{
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
         User user = new User();
-        //final User[] usuario = new User[1];
         apiInterface.profile(new String (username)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -87,5 +93,9 @@ public class ProfileActivity extends AppCompatActivity{
         passText.setText(user.getPassword());
         mailText.setText(user.getEmail());
         //languageText.setText(user.getLanguage());
+    }
+    private void openUpdateUserActivity(){
+        Intent intent = new Intent(this, EditProfileActivity.class);
+        startActivity(intent);
     }
 }

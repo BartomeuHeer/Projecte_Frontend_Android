@@ -34,6 +34,10 @@
     <string name="language_catalan">Catala</string>
     <!-- LogIn page -->
     <string name="sign_in">Entra</string>
+    <!-- Edit profile activity -->
+    <string name="update_username">Actualitza el nom usuari</string>
+    <string name="update_password">Actualitza la contrasenya</string>
+    <string name="update_email">Actualitza el correu</string>
     <!-- Nav menu -->
     <string name="nav_account">El meu perfil</string>
     <string name="nav_settings">Preferencies</string>

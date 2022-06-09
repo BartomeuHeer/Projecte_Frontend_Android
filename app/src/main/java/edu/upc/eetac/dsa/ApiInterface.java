@@ -45,6 +45,13 @@ public interface ApiInterface {
     @PUT ("users/{username}/updatelanguage")
     Call<Void> updateUserLanguage(@Path("username") String username,@Body String language);
 
+    @PUT ("users/{username}/updateusername")
+    Call<Void> updateUserUsername(@Path("username") String username,@Body String newusername);
+    @PUT ("users/{username}/updatepassword")
+    Call<Void> updateUserPassword(@Path("username") String username,@Body String newpassword);
+    @PUT ("users/{username}/updateemail")
+    Call<Void> updateUserEmail(@Path("username") String username,@Body String newemail);
+
     @GET("users/{username}")
     Call<User> getUser(@Path("username") String username);
 }
