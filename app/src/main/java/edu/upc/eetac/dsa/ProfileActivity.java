@@ -52,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity{
 
             }
         });
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
+        updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openUpdateUserActivity();
