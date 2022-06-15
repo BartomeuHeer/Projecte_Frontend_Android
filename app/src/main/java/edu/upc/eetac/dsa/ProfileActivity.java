@@ -129,9 +129,8 @@ public class ProfileActivity extends AppCompatActivity{
     private void deleteUser(){
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
-        String pass = sharedPref.getString("password","");
 
-        apiInterface.deleteUser(new String(username),new LogInParams(username,pass)).enqueue(new Callback<Void>(){
+        apiInterface.deleteUser(new String(username)).enqueue(new Callback<Void>(){
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Log.d("grup1Bien",""+response.code());

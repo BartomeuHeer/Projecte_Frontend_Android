@@ -55,6 +55,6 @@ public interface ApiInterface {
     @GET("users/{username}")
     Call<User> getUser(@Path("username") String username);
 
-    @POST("users/delete/{username}")
-    Call<Void> deleteUser(@Path("username") String username, @Body LogInParams logInParams);
+    @DELETE("users/{username}")
+    Call<Void> deleteUser(@Path("username") String username);
 }
