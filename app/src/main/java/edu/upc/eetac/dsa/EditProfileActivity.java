@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        Intent myIntent = getIntent();
         userNameText = (TextView) findViewById(R.id.edit_username);
         passText = (TextView) findViewById(R.id.edit_password);
         mailText = (TextView) findViewById(R.id.edit_email);
@@ -34,6 +36,10 @@ public class EditProfileActivity extends AppCompatActivity {
         update_username_btn = (Button) findViewById(R.id.update_username_btn);
         update_password_btn = (Button) findViewById(R.id.update_password_button);
         update_email_button = (Button) findViewById(R.id.update_email_button);
+
+        String usernamebox = myIntent.getStringExtra("username");
+        String passwordbox = myIntent.getStringExtra("password");
+        String emailbox = myIntent.getStringExtra("email");
 
         validateUser();
         validatePass();
@@ -75,7 +81,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
-    private User profile() {
+   private User profile() {
 
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         SharedPreferences.Editor myEdit;
@@ -87,7 +93,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 Log.d("grup1", "" + response.code());
                 String c = Integer.toString(response.code());
                 if (response.isSuccessful()) {
-                    SharedPreferences.Editor myEdit = null;
                     user.setUsername(response.body().getUsername());
                     user.setEmail(response.body().getEmail());
                     user.setCoins(response.body().getCoins());
@@ -109,11 +114,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return user;
     }
 
-    private void pintamelo(User user) {
-        userNameText.setText(user.getUsername());
-        passText.setText(user.getPassword());
-        mailText.setText(user.getEmail());
-    }
+
 
     private void updateUsername() {
         String new_username = userNameText.getText().toString();
@@ -128,6 +129,7 @@ public class EditProfileActivity extends AppCompatActivity {
                         String c = Integer.toString(response.code());
                         Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
                         saveUsernameToSharedPref(new_username);
+
                     }
 
                     @Override
@@ -197,7 +199,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 });
             }
             else{
-                Toast.makeText(getApplicationContext(),   "New password is the same as the old one!" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),   "New email is the same as the old one!" , Toast.LENGTH_SHORT).show();
             }
     }
     private boolean validateUser() {
@@ -241,20 +243,29 @@ public class EditProfileActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPref.edit();
         myEdit.putString("email",user.getEmail());
+        myEdit.apply();
     }
     private void saveEmailToSharedPref2 (String email){
         SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPref.edit();
         myEdit.putString("email",email);
+        myEdit.apply();
     }
     private void saveUsernameToSharedPref (String username){
         SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPref.edit();
         myEdit.putString("username",username);
+        myEdit.apply();
     }
     private void savePasswordToSharedPref (String password){
         SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPref.edit();
         myEdit.putString("password",password);
+        myEdit.apply();
+    }
+    private void pintamelo(User user) {
+        userNameText.setText(user.getUsername());
+        passText.setText(user.getPassword());
+        mailText.setText(user.getEmail());
     }
 }
