@@ -31,6 +31,11 @@
     <string name="language_catalan">Catalan</string>
     <!-- LogIn page -->
     <string name="sign_in">Sign In</string>
+    <!-- Edit profile activity -->
+    <string name="update_username">Update username</string>
+    <string name="update_password">Update password</string>
+    <string name="update_email">Update email</string>
+
     <!-- Nav menu -->
     <string name="nav_account">My profile</string>
     <string name="nav_settings">Settings</string>

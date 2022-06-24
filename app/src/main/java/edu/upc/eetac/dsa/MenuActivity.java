@@ -109,7 +109,7 @@ public class MenuActivity extends AppCompatActivity {
                 MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
         Intent intent = new Intent(MenuActivity.this,
                 LandPageActivity.class);
         startActivity(intent);

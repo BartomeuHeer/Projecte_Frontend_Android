@@ -1,8 +1,10 @@
 package edu.upc.eetac.dsa;
 
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,7 +32,7 @@ import edu.upc.eetac.dsa.models.User;
 public class ProfileActivity extends AppCompatActivity{
 
     private TextView userNameText, passText, mailText,languageText;
-    private Button deleteBtn;
+    private Button deleteBtn, updateBtn;
     ApiInterface apiInterface;
 
     @Override
@@ -42,13 +44,42 @@ public class ProfileActivity extends AppCompatActivity{
         mailText = (TextView) findViewById(R.id.emailBox);
         languageText = (TextView) findViewById(R.id.languageBox);
         deleteBtn = (Button) findViewById(R.id.delete_btn);
+        updateBtn = (Button) findViewById(R.id.update_btn);
         apiInterface = Api.getClient();
 
         User user = profile();
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //int i = Integer.parseInt((String)v.getTag());
 
+                AlertDialog.Builder alert = new AlertDialog.Builder(ProfileActivity.this);
+                alert.setTitle("Delete");
+                alert.setMessage("Are you sure you want to delete your user?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteUser();
+                    }
+                });
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show();
+
+            }
+        });
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openUpdateUserActivity();
             }
         });
     }
@@ -58,7 +89,6 @@ public class ProfileActivity extends AppCompatActivity{
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
         User user = new User();
-        //final User[] usuario = new User[1];
         apiInterface.profile(new String (username)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -87,5 +117,45 @@ public class ProfileActivity extends AppCompatActivity{
         passText.setText(user.getPassword());
         mailText.setText(user.getEmail());
         //languageText.setText(user.getLanguage());
+    }
+    private void openUpdateUserActivity(){
+
+        Intent intent = new Intent(this, EditProfileActivity.class);
+        intent.putExtra("username", userNameText.getText().toString());
+        intent.putExtra("password", passText.getText().toString());
+        intent.putExtra("email", mailText.getText().toString());
+        startActivity(intent);
+    }
+    private void deleteUser(){
+        SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
+        String username = sharedPref.getString("username", "");
+
+        apiInterface.deleteUser(new String(username)).enqueue(new Callback<Void>(){
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.d("grup1Bien",""+response.code());
+                String c = Integer.toString(response.code());
+                if (response.isSuccessful()) {
+                    logOut();
+                }
+                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("grup1",""+t.getMessage());
+                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void logOut(){
+        SharedPreferences myPrefs = getSharedPreferences("LoginData",
+                MODE_PRIVATE);
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(this,
+                LandPageActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

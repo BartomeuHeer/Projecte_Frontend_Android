@@ -35,6 +35,10 @@
 
     <!-- LogIn page -->
     <string name="sign_in">Entra</string>
+    <!-- Edit profile activity -->
+    <string name="update_username">Actualiza el nombre de usuario</string>
+    <string name="update_password">Actualiza la contraseña</string>
+    <string name="update_email">Actualiza el correo</string>
     <!-- Nav menu -->
     <string name="nav_account">Mi perfil</string>
     <string name="nav_settings">Preferencias</string>
