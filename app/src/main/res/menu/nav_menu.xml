@@ -12,4 +12,7 @@
     <item android:id="@+id/nav_issues"
         android:icon="@mipmap/baseline_report_problem_black_20"
         android:title="@string/issues_btn"/>
+    <item android:id="@+id/nav_forum"
+        android:icon="@mipmap/baseline_forum_black_20"
+        android:title="@string/nav_forum"/>
 </menu>
