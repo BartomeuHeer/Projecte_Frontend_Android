@@ -50,9 +50,13 @@ public class ShopActivity extends AppCompatActivity {
 
     }
 
+    public void updateCoins(String coins){
+        remaining_coins.setText(coins);
+    }
+
     private void setAdapter(List<Item> list) {
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(list, username);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(list, username,this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

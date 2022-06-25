@@ -1,5 +1,6 @@
 package edu.upc.eetac.dsa;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -29,14 +30,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private String username;
     private TextView remaining_coins;
     ApiInterface apiInterface;
-    String name;
+    String name=null;
+    private ShopActivity shopAct;
 
 
 
 
-    public RecyclerViewAdapter (List<Item> itemList, String username){
+    public RecyclerViewAdapter (List<Item> itemList, String username, ShopActivity shopAct){
         this.itemList=itemList;
         this.username=username;
+        this.shopAct=shopAct;
     }
 
     //public RecyclerViewAdapter (List<Stats> statsList){
@@ -64,16 +67,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             buyButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Log.d("recyclerbutton", username);
-                    Log.d("recyclerbutton", name);
-                    apiInterface.buyItems(new ToBuyItems(name,username)).enqueue(
+                    Log.d("recyclerbutton impo", nameText.getText().toString());
+                    apiInterface.buyItems(new Inventory(nameText.getText().toString(),username)).enqueue(
+
                             new Callback<User>() {
                                 @Override
                                 public void onResponse(Call<User> call, Response<User> response) {
                                     //remaining_coins = view.findViewById(R.id.remainin_coins_text);
                                     //remaining_coins.setText(Integer.toString(response.body().getCoins()));
                                     //Log.d("recyclercoins", Integer.toString(response.body().getCoins()));
+                                    Log.d("recyclerbutton", nameText.getText().toString());
+                                    int coins = response.body().getCoins();
+                                    shopAct.updateCoins(Integer.toString(coins));
 
                                 }
 
