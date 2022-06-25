@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Item> itemList;
     private String username;
-    //private TextView remaining_coins;
+    private TextView remaining_coins;
     ApiInterface apiInterface;
     String name;
 
@@ -71,6 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                             new Callback<User>() {
                                 @Override
                                 public void onResponse(Call<User> call, Response<User> response) {
+                                    //remaining_coins = view.findViewById(R.id.remainin_coins_text);
                                     //remaining_coins.setText(Integer.toString(response.body().getCoins()));
                                     //Log.d("recyclercoins", Integer.toString(response.body().getCoins()));
 
