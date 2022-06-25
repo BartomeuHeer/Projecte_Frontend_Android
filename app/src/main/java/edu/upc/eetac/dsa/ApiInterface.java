@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa;
 import java.util.List;
 
+import edu.upc.eetac.dsa.models.ForumMessage;
 import edu.upc.eetac.dsa.models.Issue;
 import edu.upc.eetac.dsa.models.Item;
 import edu.upc.eetac.dsa.models.LogInParams;
@@ -57,4 +58,10 @@ public interface ApiInterface {
 
     @DELETE("users/{username}")
     Call<Void> deleteUser(@Path("username") String username);
+
+    @POST("forum/addMessage")
+    Call<Void> addEntry(@Body ForumMessage message);
+
+    @GET("forum/GetAll")
+    Call<List<ForumMessage>> getAllMessages();
 }

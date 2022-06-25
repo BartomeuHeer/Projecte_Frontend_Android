@@ -56,6 +56,9 @@ public class MenuActivity extends AppCompatActivity {
                     case(R.id.nav_issues):
                         openIssueActivity();
                         break;
+                    case(R.id.nav_forum):
+                        openForumActivity();
+                        break;
                 }
                 return true;
             }
@@ -102,6 +105,10 @@ public class MenuActivity extends AppCompatActivity {
     }
     private void openLanguagesActivity(){
         Intent intent = new Intent(this, LanguageActivity.class);
+        startActivity(intent);
+    }
+    private void openForumActivity(){
+        Intent intent = new Intent(this, ForumActivity.class);
         startActivity(intent);
     }
     private void logOut(){
