@@ -6,7 +6,7 @@ import edu.upc.eetac.dsa.models.Issue;
 import edu.upc.eetac.dsa.models.Item;
 import edu.upc.eetac.dsa.models.LogInParams;
 import edu.upc.eetac.dsa.models.Stats;
-import edu.upc.eetac.dsa.models.ToBuyItems;
+import edu.upc.eetac.dsa.models.Inventory;
 import edu.upc.eetac.dsa.models.User;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -26,7 +26,7 @@ public interface ApiInterface {
     Call<User> register(@Body User user);
 
     @PUT("users/buyItem")
-    Call<User> buyItems (@Body ToBuyItems toBuyItems);
+    Call<User> buyItems (@Body Inventory inventory);
 
     @GET("users")
     Call<List<User>> getUsers();
@@ -64,4 +64,7 @@ public interface ApiInterface {
 
     @GET("forum/GetAll")
     Call<List<ForumMessage>> getAllMessages();
+
+    @GET("inventory/{username}")
+    Call<List<Item>> getInventory(@Path("username") String username);
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">The binding of Gilbert</string>
+    <string name="app_name">The Binding of Gilbert</string>
     <string name="copyright">Grup 1</string>
     <!-- Main page -->
     <string name="title_main_page">Pagina principal</string>
     <string name="logIn_btn">Log in</string>
     <string name="register_btn">Registrar-se</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="title_inventory">Inventari</string>
     <string name="title_activity_register">Registrar-se</string>
     <string name="cancel_button">Cancelar</string>
     <string name="title_activity_stats">Estadistiques</string>

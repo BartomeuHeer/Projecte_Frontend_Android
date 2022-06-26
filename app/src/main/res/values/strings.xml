@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">The binding of Gilbert</string>
+    <string name="app_name">The Binding of Gilbert</string>
     <string name="copyright">Group 1</string>
     <!-- Main page -->
     <string name="title_main_page">Main Page</string>
@@ -11,6 +11,7 @@
     <string name="title_activity_shop">Shop</string>
     <string name="cancel_button">Cancel</string>
     <string name="button_buy">Buy</string>
+    <string name="title_inventory">Inventory</string>
     <!-- Register -->
     <string name="username">Username</string>
     <string name="email">Email</string>

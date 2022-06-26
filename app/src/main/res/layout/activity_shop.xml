@@ -47,17 +47,19 @@
             android:id="@+id/label_coins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Coins:" />
+            android:text="Coins:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <Space
-            android:layout_width="57dp"
+            android:layout_width="30dp"
             android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/remainin_coins_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </LinearLayout>
 
