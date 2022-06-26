@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">The binding of Gilbert</string>
+    <string name="app_name">The Binding of Gilbert</string>
     <string name="copyright">Grupo 1</string>
     <!-- Main page -->
     <string name="title_main_page">Página principal</string>
@@ -24,11 +24,13 @@
     <string name="log_out_btn">Log Out</string>
     <string name="languages_btn">Idiomas</string>
     <string name="issues_btn">Problemas</string>
+    <string name="more_options">Pulsa para más opciones</string>
 
     <string name="play_btn">Jugar</string>
     <string name="button_buy">Comprar</string>
 
     <!-- Languages -->
+    <string name="choose_lang">Escoge tu idioma!</string>
     <string name="language_es">Español</string>
     <string name="language_english">Ingles</string>
     <string name="language_catalan">Catalan</string>
@@ -45,6 +47,8 @@
     <string name="nav_logout">Log out</string>
     <string name="nav_forum">Forum</string>
     <!-- Profile activity -->
+    <string name="profile_header">Mi perfil</string>
+    <string name="language">Idioma</string>
     <string name="delete_btn">Borra usuario</string>
     <string name="update_user">Actualiza usuario</string>
     <!-- Forum activity -->

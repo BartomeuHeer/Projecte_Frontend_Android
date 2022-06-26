@@ -19,7 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button profile,stats,shop,logout, issue, languages;
+    private Button profile,stats,shop, play, logout, issue, languages;
 
     ApiInterface apiInterface;
 
@@ -66,6 +66,7 @@ public class MenuActivity extends AppCompatActivity {
 
         stats = (Button) findViewById(R.id.button_stats);
         shop = (Button) findViewById(R.id.button_shop);
+        play = (Button) findViewById(R.id.button_play);
 
         apiInterface = Api.getClient();
 
@@ -84,6 +85,18 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayActivity();
+            }
+
+        });
+    }
+
+    private void openPlayActivity() {
+        Intent intent = new Intent(this, PlayActivity.class);
+        startActivity(intent);
     }
 
     private void openProfileActivity(){
