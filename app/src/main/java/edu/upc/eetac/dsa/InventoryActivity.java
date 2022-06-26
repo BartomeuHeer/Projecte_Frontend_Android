@@ -25,6 +25,7 @@ public class InventoryActivity extends AppCompatActivity {
     private List<Inventory> inventoryList;
     private RecyclerView recyclerView;
     ApiInterface apiInterface;
+
     SharedPreferences sharedPref;
     String username;
 
@@ -33,54 +34,35 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
         recyclerView = findViewById(R.id.recyclerViewInv);
-        itemList = new ArrayList<>();
-        inventoryList = new ArrayList<>();
         apiInterface = Api.getClient();
         sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         username = sharedPref.getString("username", "");
 
         setInventoryInfo();
+        //Log.d("inventoryinfo", itemList.get(0).getName());
+
 
     }
 
-    private void setAdapter(List<Inventory> inventoryList, List<Item> itemList) {
-        RecyclerViewAdapterInventory adapter = new RecyclerViewAdapterInventory(inventoryList, username,itemList);
+    private void setAdapter(List<Inventory> inventoryList) {
+        RecyclerViewAdapterInventory adapter = new RecyclerViewAdapterInventory(inventoryList, username);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
     }
+
+
+
 
     private void setInventoryInfo()
     {
-        apiInterface.getItemsforShop().enqueue(new Callback<List<Item>>(){
-
-            @Override
-            public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
-                if (response.isSuccessful()) {
-                    Log.d("invbien", response.body().get(0).getName());
-                    itemList = response.body();
-                    //setAdapter(response.body());
-                }
-                else
-                {
-                    Log.d("invmal", Integer.toString(response.code()));
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Item>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
-
         apiInterface.getInventory(username).enqueue(new Callback<List<Inventory>>() {
             @Override
             public void onResponse(Call<List<Inventory>> call, Response<List<Inventory>> response) {
-                inventoryList = response.body();
+                Log.d("inv",response.body().get(0).getName());
+                setAdapter(response.body());
 
             }
 
@@ -89,7 +71,7 @@ public class InventoryActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
-        setAdapter( inventoryList, itemList);
+
 
 
     }

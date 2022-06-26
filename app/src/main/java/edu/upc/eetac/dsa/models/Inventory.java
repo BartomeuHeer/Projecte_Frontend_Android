@@ -4,12 +4,22 @@ public class Inventory {
     public String name;
     public String username;
     public int quantity;
+    public String urlPic;
 
     public Inventory() {}
+    public Inventory(String name, String username, String urlPic)
+    {
+        this.name = name;
+        this.username = username;
+        this.urlPic=urlPic;
+    }
+
     public Inventory(String name, String username)
     {
         this.name = name;
         this.username = username;
+        //this.quantity=1;
+
     }
 
     public String getName()
@@ -36,4 +46,8 @@ public class Inventory {
     }
 
     public void setQuantity(int quantity){ this.quantity=quantity;}
+
+    public String getUrlPic(){ return urlPic;}
+
+    public void setUrlPic(String urlPic){ this.urlPic=urlPic;}
 }
