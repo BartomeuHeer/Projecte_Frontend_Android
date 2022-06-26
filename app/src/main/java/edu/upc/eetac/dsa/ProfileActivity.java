@@ -116,6 +116,7 @@ public class ProfileActivity extends AppCompatActivity{
         userNameText.setText(user.getUsername());
         passText.setText(user.getPassword());
         mailText.setText(user.getEmail());
+        languageText.setText(user.getLanguage());
         //languageText.setText(user.getLanguage());
     }
     private void openUpdateUserActivity(){

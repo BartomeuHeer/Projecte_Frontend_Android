@@ -26,7 +26,9 @@
     <string name="languages_btn">Languages</string>
     <string name="issues_btn">Issues</string>
     <string name="play_btn">Play</string>
+    <string name="more_options">Press for more options</string>
     <!-- Languages -->
+    <string name="choose_lang">Choose your language!</string>
     <string name="language_es">Spanish</string>
     <string name="language_english">English</string>
     <string name="language_catalan">Catalan</string>
@@ -43,8 +45,11 @@
     <string name="nav_logout">Log out</string>
     <string name="nav_forum">Forum</string>
     <!-- Profile activity -->
+    <string name="profile_header">My profile</string>
+    <string name="language">Language</string>
     <string name="delete_btn">Delete user</string>
     <string name="update_user">Update user</string>
+
     <!-- Forum activity -->
     <string name="write_something">Write something here!</string>
     <!-- Strings used for fragments for navigation -->

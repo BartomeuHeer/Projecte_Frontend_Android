@@ -5,9 +5,11 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:fitsSystemWindows="true"
     tools:context=".MenuActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="@drawable/wp5628664">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="@string/app_name"
+                android:text="@string/more_options"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -59,7 +61,10 @@
         <LinearLayout
             android:id="@+id/main_menu_content"
             android:layout_width="388dp"
-            android:layout_height="469dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,17 +72,44 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/button_stats"
-                android:layout_width="match_parent"
-                android:layout_height="69dp"
-                android:text="@string/stats_btn"
-                android:textColor="@color/white" />
+                android:id="@+id/button_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/play_btn"
+                android:textSize="24sp"
+                app:icon="@drawable/ic_baseline_videogame_asset_58" />
 
-            <Button
-                android:id="@+id/button_shop"
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:text="@string/shop_btn" />
+                android:layout_height="40dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shop_btn"
+                    android:textSize="20sp"
+                    app:icon="@drawable/ic_baseline_shopping_cart_24" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button_stats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stats_btn"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:icon="@drawable/ic_baseline_local_activity_24" />
+            </LinearLayout>
 
 
         </LinearLayout>
