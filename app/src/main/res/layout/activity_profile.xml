@@ -69,12 +69,10 @@
                 android:layout_marginTop="14dp"
                 android:textColorHint="#808080"
                 app:helperText="Username"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_image"
-                app:layout_constraintWidth_percent="0.7"
-                app:prefixTextAppearance="@style/TextAppearance.AppCompat.Display3">
+                app:layout_constraintWidth_percent="0.7">
 
                 <TextView
                     android:id="@+id/usernameBox"
