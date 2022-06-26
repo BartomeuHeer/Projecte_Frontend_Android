@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InventoryActivity extends AppCompatActivity {
+
     private List<Item> itemList;
     private List<Inventory> inventoryList;
     private RecyclerView recyclerView;
@@ -57,13 +58,13 @@ public class InventoryActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
                 if (response.isSuccessful()) {
-                    Log.d("shopbien", response.body().get(0).getName());
+                    Log.d("invbien", response.body().get(0).getName());
                     itemList = response.body();
                     //setAdapter(response.body());
                 }
                 else
                 {
-                    Log.d("shopmal", Integer.toString(response.code()));
+                    Log.d("invmal", Integer.toString(response.code()));
                 }
 
             }
@@ -80,6 +81,7 @@ public class InventoryActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Inventory>> call, Response<List<Inventory>> response) {
                 inventoryList = response.body();
+
             }
 
             @Override
@@ -87,7 +89,8 @@ public class InventoryActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
+        setAdapter( inventoryList, itemList);
 
-        setAdapter(inventoryList, itemList);
+
     }
 }

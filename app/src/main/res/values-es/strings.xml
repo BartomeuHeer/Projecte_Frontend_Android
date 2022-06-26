@@ -10,6 +10,7 @@
     <string name="title_activity_register">Registrarse</string>
     <string name="cancel_button">Cancelar</string>
     <string name="title_inventory">Inventario</string>
+    <string name="inventory_btn">Mi Inventario</string>
     <string name="title_activity_stats">Estadisticas</string>
     <!-- Register -->
     <string name="username">Usuario</string>

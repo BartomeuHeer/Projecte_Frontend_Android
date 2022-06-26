@@ -58,6 +58,9 @@
         <activity
             android:name=".StatsActivity"
             android:exported="false" />
+        <activity
+            android:name=".InventoryActivity"
+            android:exported="false" />
 
     </application>
 

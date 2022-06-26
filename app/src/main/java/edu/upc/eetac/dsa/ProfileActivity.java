@@ -32,7 +32,7 @@ import edu.upc.eetac.dsa.models.User;
 public class ProfileActivity extends AppCompatActivity{
 
     private TextView userNameText, passText, mailText,languageText;
-    private Button deleteBtn, updateBtn;
+    private Button deleteBtn, updateBtn, inventoryBtn;
     ApiInterface apiInterface;
 
     @Override
@@ -45,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity{
         languageText = (TextView) findViewById(R.id.languageBox);
         deleteBtn = (Button) findViewById(R.id.delete_btn);
         updateBtn = (Button) findViewById(R.id.update_btn);
+        inventoryBtn = (Button) findViewById(R.id.inventory_btn);
         apiInterface = Api.getClient();
 
         User user = profile();
@@ -80,6 +81,13 @@ public class ProfileActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 openUpdateUserActivity();
+            }
+        });
+
+        inventoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openInventoryActivity();
             }
         });
     }
@@ -127,6 +135,12 @@ public class ProfileActivity extends AppCompatActivity{
         intent.putExtra("email", mailText.getText().toString());
         startActivity(intent);
     }
+
+    private void openInventoryActivity(){
+        Intent intent = new Intent(this, InventoryActivity.class);
+        startActivity(intent);
+    }
+
     private void deleteUser(){
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
