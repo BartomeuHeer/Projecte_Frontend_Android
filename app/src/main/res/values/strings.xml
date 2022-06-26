@@ -11,6 +11,7 @@
     <string name="title_activity_shop">Shop</string>
     <string name="cancel_button">Cancel</string>
     <string name="button_buy">Buy</string>
+    <string name="title_inventory">Inventory</string>
     <!-- Register -->
     <string name="username">Username</string>
     <string name="email">Email</string>
