@@ -23,13 +23,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerViewAdapterInventory.myViewHolder>{
-    private List<Item> inventoryList;
+    private List<Inventory> inventoryList;
     private String username;
     ApiInterface apiInterface;
     String name=null;
     private List<Item> itemsList;
 
-    public RecyclerViewAdapterInventory (List<Item> inventoryList, String username, List<Item> itemsList){
+    public RecyclerViewAdapterInventory (List<Inventory> inventoryList, String username, List<Item> itemsList){
         this.inventoryList=inventoryList;
         this.itemsList=itemsList;
         this.username=username;
@@ -58,9 +58,10 @@ public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerV
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterInventory.myViewHolder holder, int position) {
         name = inventoryList.get(position).getName();
+        String qty = Integer.toString(inventoryList.get(position).getQuantity());
         holder.nameText.setText(name);
-        //holder.quantityText.setText(price);
-        Picasso.get().load(inventoryList.get(position).getUrlPic()).into(holder.itempic);
+        holder.quantityText.setText(qty);
+        Picasso.get().load(itemsList.get(position).getUrlPic()).into(holder.itempic);
 
 
     }

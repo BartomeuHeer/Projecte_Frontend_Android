@@ -66,5 +66,5 @@ public interface ApiInterface {
     Call<List<ForumMessage>> getAllMessages();
 
     @GET("inventory/{username}")
-    Call<List<Item>> getInventory(@Path("username") String username);
+    Call<List<Inventory>> getInventory(@Path("username") String username);
 }
