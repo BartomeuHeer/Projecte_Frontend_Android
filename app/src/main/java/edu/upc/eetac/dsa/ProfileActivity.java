@@ -32,7 +32,9 @@ import edu.upc.eetac.dsa.models.User;
 public class ProfileActivity extends AppCompatActivity{
 
     private TextView userNameText, passText, mailText,languageText;
+    String langtext;
     private Button deleteBtn, updateBtn, inventoryBtn;
+
     ApiInterface apiInterface;
 
     @Override
@@ -47,7 +49,6 @@ public class ProfileActivity extends AppCompatActivity{
         updateBtn = (Button) findViewById(R.id.update_btn);
         inventoryBtn = (Button) findViewById(R.id.inventory_btn);
         apiInterface = Api.getClient();
-
         User user = profile();
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,9 +123,10 @@ public class ProfileActivity extends AppCompatActivity{
     }
     private void pintamelo(User user){
         userNameText.setText(user.getUsername());
-        passText.setText(user.getPassword());
+        passText.setText("...");
         mailText.setText(user.getEmail());
         languageText.setText(user.getLanguage());
+        langtext=user.getLanguage();
         //languageText.setText(user.getLanguage());
     }
     private void openUpdateUserActivity(){
