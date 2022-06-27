@@ -34,8 +34,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ShopActivity shopAct;
 
 
-
-
     public RecyclerViewAdapter (List<Item> itemList, String username, ShopActivity shopAct){
         this.itemList=itemList;
         this.username=username;
@@ -52,9 +50,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView nameText,priceText;
         private ImageView itempic;
         private Button buyButton;
-
-
-
 
         public myViewHolder (final View view)
         {

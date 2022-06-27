@@ -29,9 +29,9 @@ public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerV
     String name=null;
     private List<Item> itemsList;
 
-    public RecyclerViewAdapterInventory (List<Inventory> inventoryList, String username, List<Item> itemsList){
+    public RecyclerViewAdapterInventory (List<Inventory> inventoryList, String username){
         this.inventoryList=inventoryList;
-        this.itemsList=itemsList;
+
         this.username=username;
     }
 
@@ -51,8 +51,8 @@ public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerV
     @NonNull
     @Override
     public RecyclerViewAdapterInventory.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_inventory,parent,false);
-        return new RecyclerViewAdapterInventory.myViewHolder(itemView);
+        View invView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_inventory,parent,false);
+        return new RecyclerViewAdapterInventory.myViewHolder(invView);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerV
         String qty = Integer.toString(inventoryList.get(position).getQuantity());
         holder.nameText.setText(name);
         holder.quantityText.setText(qty);
-        Picasso.get().load(itemsList.get(position).getUrlPic()).into(holder.itempic);
+        Picasso.get().load(inventoryList.get(position).getUrlPic()).into(holder.itempic);
 
 
     }
@@ -70,5 +70,7 @@ public class RecyclerViewAdapterInventory extends RecyclerView.Adapter<RecyclerV
     public int getItemCount() {
         return inventoryList.size();
     }
+
+
 
 }
