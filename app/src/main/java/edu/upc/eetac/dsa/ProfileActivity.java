@@ -33,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity{
 
     private TextView userNameText, passText, mailText,languageText;
     private Button deleteBtn, updateBtn;
+    String langtext;
     ApiInterface apiInterface;
 
     @Override
@@ -46,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity{
         deleteBtn = (Button) findViewById(R.id.delete_btn);
         updateBtn = (Button) findViewById(R.id.update_btn);
         apiInterface = Api.getClient();
-
         User user = profile();
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,9 +114,10 @@ public class ProfileActivity extends AppCompatActivity{
     }
     private void pintamelo(User user){
         userNameText.setText(user.getUsername());
-        passText.setText(user.getPassword());
+        passText.setText("...");
         mailText.setText(user.getEmail());
         languageText.setText(user.getLanguage());
+        langtext=user.getLanguage();
         //languageText.setText(user.getLanguage());
     }
     private void openUpdateUserActivity(){
