@@ -11,6 +11,9 @@
     <string name="cancel_button">Cancelar</string>
     <string name="title_inventory">Inventario</string>
     <string name="inventory_btn">Mi Inventario</string>
+    <string name="btn_time">Por tiempo</string>
+    <string name="top10">Mejores 10 partidas</string>
+    <string name="btn_kills">Por muertes</string>
     <string name="title_activity_stats">Estadisticas</string>
     <!-- Register -->
     <string name="username">Usuario</string>

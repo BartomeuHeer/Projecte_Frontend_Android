@@ -18,15 +18,18 @@ import edu.upc.eetac.dsa.models.Stats;
 public class RecyclerViewAdapterStats extends RecyclerView.Adapter<RecyclerViewAdapterStats.myViewHolder>{
 
     private List<Stats> statsList;
+    private String stats;
 
-    public RecyclerViewAdapterStats(List<Stats> statsList){
+    public RecyclerViewAdapterStats(List<Stats> statsList, String stats){
         this.statsList=statsList;
+        this.stats=stats;
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         private TextView nameText,pointsText;
         private ImageView img;
+
 
         public myViewHolder (final View view)
         {
@@ -48,13 +51,28 @@ public class RecyclerViewAdapterStats extends RecyclerView.Adapter<RecyclerViewA
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterStats.myViewHolder holder, int position) {
         String name = statsList.get(position).getUsername();
-        String points = Integer.toString(statsList.get(position).getPoints());
+        String time = Integer.toString(statsList.get(position).getTime());
+        String kills = Integer.toString(statsList.get(position).getEnemiesKilled());
         String avatarurl= statsList.get(position).getAvatar();
         holder.nameText.setText(name);
-        holder.pointsText.setText(points);
+        if (stats.equals("kill"))
+        {
+            holder.pointsText.setText(kills + " enemies killed");
+        }
+        else
+        {
+            holder.pointsText.setText(time + " seconds");
+        }
+
         Picasso.get().load(statsList.get(position).getAvatar()).into(holder.img);
 
 
+    }
+
+    public void clear() {
+        int size = statsList.size();
+        statsList.clear();
+        notifyItemRangeRemoved(0, size);
     }
 
     @Override

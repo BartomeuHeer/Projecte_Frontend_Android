@@ -17,6 +17,9 @@
     <string name="email">Correu</string>
     <string name="repeat_email">Repeteix Correu</string>
     <string name="password">Contrasenya</string>
+    <string name="btn_time">Segons temps</string>
+    <string name="btn_kills">Segons morts</string>
+    <string name="top10">Millors 10 partides</string>
     <string name="repeat_pass">Repeteix contrasenya</string>
     <!-- Menu -->
     <string name="stats_btn">Estadistiques</string>

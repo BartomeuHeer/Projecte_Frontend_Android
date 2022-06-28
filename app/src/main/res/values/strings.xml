@@ -11,6 +11,9 @@
     <string name="title_activity_shop">Shop</string>
     <string name="cancel_button">Cancel</string>
     <string name="button_buy">Buy</string>
+    <string name="btn_time">By time</string>
+    <string name="btn_kills">By kills</string>
+    <string name="top10">Top 10 games</string>
     <string name="title_inventory">Inventory</string>
     <string name="inventory_btn">My Inventory</string>
     <!-- Register -->

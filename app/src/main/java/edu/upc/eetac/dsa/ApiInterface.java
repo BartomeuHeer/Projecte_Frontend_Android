@@ -67,4 +67,10 @@ public interface ApiInterface {
 
     @GET("users/{username}/inventory")
     Call<List<Inventory>> getInventory(@Path("username") String username);
+
+    @GET("stats/rankingKills")
+    Call<List<Stats>> getRankingByKills();
+
+    @GET("stats/rankingTime")
+    Call<List<Stats>> getRankingByTime();
 }
